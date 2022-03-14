@@ -1,0 +1,33 @@
+/****************************************
+ * Write your code in the sections below!
+ ****************************************/
+
+/* header styles */
+
+header {
+    display: flex;
+    max-width: 880px;
+    width: 100%;
+    margin: 12px auto 0;
+}
+
+header ul {
+    list-style: none;
+    padding: 0;
+}
+
+header ul li {
+    display: inline-block;
+    margin: 0 4px;    
+}
+
+/* banner styles */
+
+/* main content styles */
+
+/* table styles */
+
+/* footer styles */
+
+
+

@@ -1,0 +1,25 @@
+name: All project files are in your GitHub repo
+on: push
+jobs:
+  find-specific-files:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Check file existence
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "about.html, concerts.html, theme.css, components.css"
+        allow_failure: true
+
+    - name: Check folder existence
+      run: ls assets
+
+    - name: Count components.css lines
+      id: components
+      run: echo "::set-output name=components::$(wc -l components.css | awk '{print $1;}')"
+
+    - name: components.css valid
+      if: ${{ steps.components.outputs.components == '' || steps.components.outputs.components < 60 }}
+      run: exit 1
